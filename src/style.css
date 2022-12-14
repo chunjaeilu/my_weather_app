@@ -136,15 +136,15 @@ h3 {
 }
 
 .time-cast .time-list {
-  width: calc(100% * 2);
+  width: 100%;
   overflow: hidden;
   font-size: 12px;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
 }
 
 .time-cast .time-list .time-content {
-  display: inline-block;
-  width: calc((375px - 70px) / 5);
+  text-align: center;
 }
 
 .time-cast .time-list img {

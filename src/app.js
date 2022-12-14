@@ -130,7 +130,83 @@ function showWeatherData(data) {
   bgEl.setAttribute("src", bgSrc);
 }
 
-function showWeatherData2(data2) {}
+function showWeatherData2(data2) {
+  /* let dtNow = Math.floor(new Date().getTime() / 1000);
+  let td = 9 * 60 * 60;
+  let dtKr = dtNow + td; */
+
+  // 시간별 예보
+  // 시간정보
+  let timeData = [
+    data2.list[3].dt_txt.slice(11, 13),
+    data2.list[4].dt_txt.slice(11, 13),
+    data2.list[5].dt_txt.slice(11, 13),
+    data2.list[6].dt_txt.slice(11, 13),
+    data2.list[7].dt_txt.slice(11, 13),
+    data2.list[8].dt_txt.slice(11, 13),
+  ];
+
+  let time1El = document.querySelector(".content1 .time");
+  let time2El = document.querySelector(".content2 .time");
+  let time3El = document.querySelector(".content3 .time");
+  let time4El = document.querySelector(".content4 .time");
+  let time5El = document.querySelector(".content5 .time");
+  let time6El = document.querySelector(".content6 .time");
+
+  time1El.innerHTML = timeData[0] + "시";
+  time2El.innerHTML = timeData[1] + "시";
+  time3El.innerHTML = timeData[2] + "시";
+  time4El.innerHTML = timeData[3] + "시";
+  time5El.innerHTML = timeData[4] + "시";
+  time6El.innerHTML = timeData[5] + "시";
+
+  // 시간별 아이콘
+  let iconData = [
+    data2.list[3].weather[0].icon,
+    data2.list[4].weather[0].icon,
+    data2.list[5].weather[0].icon,
+    data2.list[6].weather[0].icon,
+    data2.list[7].weather[0].icon,
+    data2.list[8].weather[0].icon,
+  ];
+  let icon1El = document.querySelector(".content1 img");
+  let icon2El = document.querySelector(".content2 img");
+  let icon3El = document.querySelector(".content3 img");
+  let icon4El = document.querySelector(".content4 img");
+  let icon5El = document.querySelector(".content5 img");
+  let icon6El = document.querySelector(".content6 img");
+
+  icon1El.setAttribute("src", `./src/images/weather-icons/${iconData[0]}.svg`);
+  icon2El.setAttribute("src", `./src/images/weather-icons/${iconData[1]}.svg`);
+  icon3El.setAttribute("src", `./src/images/weather-icons/${iconData[2]}.svg`);
+  icon4El.setAttribute("src", `./src/images/weather-icons/${iconData[3]}.svg`);
+  icon5El.setAttribute("src", `./src/images/weather-icons/${iconData[4]}.svg`);
+  icon6El.setAttribute("src", `./src/images/weather-icons/${iconData[5]}.svg`);
+
+  // 시간별 온도
+  let tempCastData = [
+    Math.round((data2.list[3].main.temp - 273.15) * 10) / 10,
+    Math.round((data2.list[4].main.temp - 273.15) * 10) / 10,
+    Math.round((data2.list[5].main.temp - 273.15) * 10) / 10,
+    Math.round((data2.list[6].main.temp - 273.15) * 10) / 10,
+    Math.round((data2.list[7].main.temp - 273.15) * 10) / 10,
+    Math.round((data2.list[8].main.temp - 273.15) * 10) / 10,
+  ];
+
+  let temp1El = document.querySelector(".content1 .temp-cast");
+  let temp2El = document.querySelector(".content2 .temp-cast");
+  let temp3El = document.querySelector(".content3 .temp-cast");
+  let temp4El = document.querySelector(".content4 .temp-cast");
+  let temp5El = document.querySelector(".content5 .temp-cast");
+  let temp6El = document.querySelector(".content6 .temp-cast");
+
+  temp1El.innerHTML = `${tempCastData[0]}&deg;c`;
+  temp2El.innerHTML = `${tempCastData[1]}&deg;c`;
+  temp3El.innerHTML = `${tempCastData[2]}&deg;c`;
+  temp4El.innerHTML = `${tempCastData[3]}&deg;c`;
+  temp5El.innerHTML = `${tempCastData[4]}&deg;c`;
+  temp6El.innerHTML = `${tempCastData[5]}&deg;c`;
+}
 
 function showAirpollution(data3) {
   const pm10 = Math.round(data3.list[0].components.pm10 * 10) / 10;
@@ -220,7 +296,7 @@ function getCurrentWeatherData(lat, lon) {
       return res.json();
     })
     .then(function (data3) {
-      console.log(data3);
+      // console.log(data3);
       showAirpollution(data3);
     });
 } // getCurrentWeatherData

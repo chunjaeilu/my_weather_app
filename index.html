@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <video
+        src="./src/videos/mist-bg.mp4"
+        id="video-bg"
+        loop
+        autoplay
+        muted
+      ></video>
+      <div class="container">
+        <div class="notch">
+          <div id="time">21:22</div>
+          <div class="notch-black"></div>
+          <div id="date">12.13(화)</div>
+        </div>
+        <div class="title">
+          <h2 class="city_name">서울시</h2>
+          <!-- <img src="./src/images/list-plus.svg" alt="지역 추가" /> -->
+        </div>
+        <div class="now">
+          <div class="now-icon">
+            <div class="icon">아이콘</div>
+            <p class="desc">맑음</p>
+          </div>
+
+          <div class="now-temp">
+            <h4 class="temp">6.2 ˚c</h4>
+            <p class="feel-temp">체감온도 : 6 ˚c</p>
+          </div>
+          <div class="now-info bg-gray">
+            <ul class="info-list">
+              <li>
+                <img src="./src/images/wind-icon.svg" alt="wind" />
+                <p class="w-direction">서풍</p>
+                <p class="w-speed">4.2<small>m/s</small></p>
+              </li>
+              <li>
+                <img src="./src/images/humidity-icon.svg" alt="humidity" />
+                <p>습도</p>
+                <p class="humidity">67<small>%</small></p>
+              </li>
+              <li>
+                <img
+                  class="pm10-img"
+                  src="./src/images/good-icon.svg"
+                  alt="fine dust"
+                />
+                <p>미세먼지</p>
+                <p class="pm10">27<small>㎍/㎥</small></p>
+              </li>
+              <li>
+                <img
+                  class="pm2-5-img"
+                  src="./src/images/good-icon.svg"
+                  alt="fine dust"
+                />
+                <p>초미세먼지</p>
+                <p class="pm2-5">27<small>㎍/㎥</small></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="time-cast bg-gray">
+          <h3>시간별 예보</h3>
+          <div class="time-list">
+            <div class="time-content">
+              <p class="time">15시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+            <div class="time-content">
+              <p class="time">16시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+            <div class="time-content">
+              <p class="time">17시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+            <div class="time-content">
+              <p class="time">18시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+            <div class="time-content">
+              <p class="time">19시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+            <div class="time-content">
+              <p class="time">20시</p>
+              <img src="./src/images/weather-icons/03d.svg" alt="15시" />
+              <p class="temp-cast">6.2 ˚c</p>
+            </div>
+          </div>
+        </div>
+        <div class="week-cast bg-gray">
+          <h3>주간 예보</h3>
+          <table class="week-table">
+            <tr>
+              <th>날짜</th>
+              <td>12/13(화)</td>
+              <td>12/14(수)</td>
+              <td>12/15(목)</td>
+            </tr>
+            <tr>
+              <th>날씨</th>
+              <td>
+                <img src="./src/images/weather-icons/04d.svg" alt="날씨" />
+              </td>
+              <td>
+                <img src="./src/images/weather-icons/04d.svg" alt="날씨" />
+              </td>
+              <td>
+                <img src="./src/images/weather-icons/04d.svg" alt="날씨" />
+              </td>
+            </tr>
+            <tr>
+              <th>최저/최고</th>
+              <td>-8/3 ˚c</td>
+              <td>-8/3 ˚c</td>
+              <td>-8/3 ˚c</td>
+            </tr>
+            <tr>
+              <th>강수확률</th>
+              <td>50<small>%</small></td>
+              <td>50<small>%</small></td>
+              <td>50<small>%</small></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./src/app.js"></script>
+  </body>
+</html>

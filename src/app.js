@@ -206,6 +206,65 @@ function showWeatherData2(data2) {
   temp4El.innerHTML = `${tempCastData[3]}&deg;c`;
   temp5El.innerHTML = `${tempCastData[4]}&deg;c`;
   temp6El.innerHTML = `${tempCastData[5]}&deg;c`;
+
+  // 주간 날씨
+  let wIconData = [
+    data2.list[10].weather[0].icon,
+    data2.list[18].weather[0].icon,
+    data2.list[26].weather[0].icon,
+  ];
+
+  let wIcon1El = document.querySelector(".w-icon1 img");
+  let wIcon2El = document.querySelector(".w-icon2 img");
+  let wIcon3El = document.querySelector(".w-icon3 img");
+
+  wIcon1El.setAttribute(
+    "src",
+    `./src/images/weather-icons/${wIconData[0]}.svg`
+  );
+  wIcon2El.setAttribute(
+    "src",
+    `./src/images/weather-icons/${wIconData[1]}.svg`
+  );
+  wIcon3El.setAttribute(
+    "src",
+    `./src/images/weather-icons/${wIconData[2]}.svg`
+  );
+
+  // 주간 기온&체감
+  let wTempData = [
+    Math.round(data2.list[10].main.temp - 273.15),
+    Math.round(data2.list[18].main.temp - 273.15),
+    Math.round(data2.list[26].main.temp - 273.15),
+  ];
+  let wFeelTempData = [
+    Math.round(data2.list[10].main.feels_like - 273.15),
+    Math.round(data2.list[18].main.feels_like - 273.15),
+    Math.round(data2.list[26].main.feels_like - 273.15),
+  ];
+
+  let wTemp1El = document.querySelector(".w-temp1");
+  let wTemp2El = document.querySelector(".w-temp2");
+  let wTemp3El = document.querySelector(".w-temp3");
+
+  wTemp1El.innerHTML = `${wTempData[0]}/${wFeelTempData[0]}&deg;c`;
+  wTemp2El.innerHTML = `${wTempData[1]}/${wFeelTempData[1]}&deg;c`;
+  wTemp3El.innerHTML = `${wTempData[2]}/${wFeelTempData[2]}&deg;c`;
+
+  // 주간 강수확률
+  let wPopData = [
+    Math.round(data2.list[10].pop * 100 * 100) / 100,
+    Math.round(data2.list[18].pop * 100 * 100) / 100,
+    Math.round(data2.list[26].pop * 100 * 100) / 100,
+  ];
+
+  let wPop1El = document.querySelector(".w-pop1");
+  let wPop2El = document.querySelector(".w-pop2");
+  let wPop3El = document.querySelector(".w-pop3");
+
+  wPop1El.innerHTML = `${wPopData[0]}<small>%</small>`;
+  wPop2El.innerHTML = `${wPopData[1]}<small>%</small>`;
+  wPop3El.innerHTML = `${wPopData[2]}<small>%</small>`;
 }
 
 function showAirpollution(data3) {
@@ -252,6 +311,45 @@ function showAirpollution(data3) {
   pm2_5ImgEl.setAttribute("src", pm2_5ImgSrc);
 }
 
+// 날짜정보
+let today = new Date();
+let month = today.getMonth() + 1;
+let date = today.getDate();
+let day = today.getDay();
+let hh = today.getHours();
+let mm = today.getMinutes();
+
+let dayTxt = ["일", "월", "화", "수", "목", "금", "토"];
+
+const dateEl = document.querySelector("#date");
+const timeEl = document.querySelector("#time");
+
+dateEl.innerHTML = `${month}.${date}(${dayTxt[day]})`;
+timeEl.innerHTML = `${hh}:${mm}`;
+
+// 주간예보 날짜정보
+const date1El = document.querySelector(".week-table .date1");
+const date2El = document.querySelector(".week-table .date2");
+const date3El = document.querySelector(".week-table .date3");
+
+let dayNum1 = day + 1;
+let dayNum2 = day + 2;
+let dayNum3 = day + 3;
+
+if (dayNum1 >= 7) {
+  dayNum1 = dayNum1 - 7;
+}
+if (dayNum2 >= 7) {
+  dayNum2 = dayNum2 - 7;
+}
+if (dayNum3 >= 7) {
+  dayNum3 = dayNum3 - 7;
+}
+
+date1El.innerHTML = `${month}.${date + 1}(${dayTxt[dayNum1]})`;
+date2El.innerHTML = `${month}.${date + 2}(${dayTxt[dayNum2]})`;
+date3El.innerHTML = `${month}.${date + 3}(${dayTxt[dayNum3]})`;
+
 // 현재위치
 function getLocation() {
   if (navigator.geolocation) {
@@ -280,7 +378,7 @@ function getCurrentWeatherData(lat, lon) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       showWeatherData(data);
     });
   fetch(API_URL2)

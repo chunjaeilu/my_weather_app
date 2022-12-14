@@ -29,6 +29,7 @@ body {
   position: relative;
   border-radius: 50px;
   border: 15px solid #000;
+  box-shadow: 4px 4px 4px #333;
 }
 
 #video-bg {
@@ -155,6 +156,11 @@ h3 {
   font-size: 12px;
   width: 100%;
 }
+
+/* .week-cast .week-table th {
+  width: 53px;
+  text-align: right;
+} */
 
 .week-cast .week-table img {
   width: 30px;

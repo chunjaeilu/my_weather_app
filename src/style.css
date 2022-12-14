@@ -1,0 +1,161 @@
+/* style.js */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+  background-color: rgb(61, 150, 185);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app {
+  width: 375px;
+  height: 667px;
+  position: relative;
+  border-radius: 50px;
+  border: 15px solid #000;
+}
+
+#video-bg {
+  position: absolute;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+}
+
+#app .container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 35px;
+  padding: 5px 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(255, 255, 255, 0.8) 70%
+  );
+}
+
+.bg-gray {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.notch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notch .notch-black {
+  width: 140px;
+  height: 25px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 20px 20px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.now {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.now .now-icon .desc {
+  /* font-size: 20px; */
+  font-weight: 700;
+}
+
+.now .now-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 10px;
+  align-items: center;
+}
+
+.now .now-temp .temp {
+  font-size: 50px;
+}
+
+.now .now-temp p {
+  display: flex;
+  gap: 15px;
+}
+
+.now .now-info {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.now .now-info .info-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.now .now-info p {
+  font-size: 12px;
+}
+
+.time-cast .time-list {
+  width: calc(100% * 2);
+  overflow: hidden;
+  font-size: 12px;
+  text-align: left;
+}
+
+.time-cast .time-list .time-content {
+  display: inline-block;
+  width: calc((375px - 70px) / 5);
+}
+
+.time-cast .time-list img {
+  width: 30px;
+}
+
+.week-cast .week-table {
+  font-size: 12px;
+  width: 100%;
+}
+
+.week-cast .week-table img {
+  width: 30px;
+}

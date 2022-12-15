@@ -321,6 +321,13 @@ let mm = today.getMinutes();
 
 let dayTxt = ["일", "월", "화", "수", "목", "금", "토"];
 
+if (hh < 10) {
+  hh = "0" + hh;
+}
+if (mm < 10) {
+  mm = "0" + mm;
+}
+
 const dateEl = document.querySelector("#date");
 const timeEl = document.querySelector("#time");
 

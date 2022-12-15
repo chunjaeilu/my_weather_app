@@ -23,7 +23,7 @@ URL : https://chunjaeilu.github.io/my_weather_app/
   - API활용 데이터 불러오기 (JavaScript)
 
 - 22.12.15(목)
-  - 1차 제출 완료
+  - 1차 제출
   
 ---
 #### 기획 및 디자인 컨셉

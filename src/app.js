@@ -19,7 +19,7 @@ function getWeatherData(cityName = "seoul") {
       return res.json();
     })
     .then(function (data) {
-      // console.log(data);
+      console.log(data);
       showWeatherData(data); // data 외부로 분리
     });
 
@@ -28,7 +28,7 @@ function getWeatherData(cityName = "seoul") {
       return res2.json();
     })
     .then(function (data2) {
-      // console.log(data);
+      console.log(data2);
       showWeatherData2(data2);
     });
 
@@ -37,7 +37,7 @@ function getWeatherData(cityName = "seoul") {
       return res3.json();
     })
     .then(function (data3) {
-      // console.log(data3);
+      console.log(data3);
       showAirpollution(data3);
     });
 }
@@ -350,6 +350,40 @@ date1El.innerHTML = `${month}.${date + 1}(${dayTxt[dayNum1]})`;
 date2El.innerHTML = `${month}.${date + 2}(${dayTxt[dayNum2]})`;
 date3El.innerHTML = `${month}.${date + 3}(${dayTxt[dayNum3]})`;
 
+// 도시 선택하기
+const select = document.getElementById("city-list");
+let citySelect = "seoul";
+
+select.addEventListener("change", function (e) {
+  // console.log("목록변경", this.value);
+  citySelect = e.target.value;
+  if (citySelect == "this-position") {
+    getLocation();
+  } else if (citySelect == "seoul") {
+    lat = 37.5683;
+    lon = 126.9778;
+  } else if (citySelect == "incheon") {
+    lat = 37.45;
+    lon = 126.4161;
+  } else if (citySelect == "busan") {
+    lat = 35.1028;
+    lon = 129.0403;
+  } else if (citySelect == "daegu") {
+    lat = 35.8;
+    lon = 128.55;
+  } else if (citySelect == "gwangju") {
+    lat = 37.5683;
+    lon = 126.9778;
+  } else if (citySelect == "daejeon") {
+    lat = 36.3333;
+    lon = 127.41678;
+  } else if (citySelect == "jeju") {
+    lat = 33.5097;
+    lon = 126.5219;
+  }
+  getWeatherData(citySelect);
+});
+
 // 현재위치
 function getLocation() {
   if (navigator.geolocation) {
@@ -386,7 +420,7 @@ function getCurrentWeatherData(lat, lon) {
       return res.json();
     })
     .then(function (data2) {
-      console.log(data2);
+      // console.log(data2);
       showWeatherData2(data2);
     });
   fetch(API_URL3)

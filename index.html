@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <!-- jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./src/style.js"></script>
   </head>
+
   <body>
     <div id="app">
       <video
@@ -24,7 +28,27 @@
         </div>
         <div class="title">
           <h2 class="city_name">서울시</h2>
-          <!-- <img src="./src/images/list-plus.svg" alt="지역 추가" /> -->
+          <img
+            id="btn-toggle"
+            src="./src/images/list-plus.svg"
+            alt="지역 추가"
+          />
+        </div>
+        <div class="city-select">
+          <h4>도시 선택하기</h4>
+          <button id="btn-close">
+            <img src="./src/images/close.svg" alt="" />
+          </button>
+          <select name="city-list" id="city-list" size="8">
+            <option value="seoul">서울</option>
+            <option value="incheon">인천</option>
+            <option value="busan">부산</option>
+            <option value="daegu">대구</option>
+            <option value="gwangju">광주</option>
+            <option value="daejeon">대전</option>
+            <option value="jeju">제주</option>
+            <option value="this-position" selected>현재위치</option>
+          </select>
         </div>
         <div class="now">
           <div class="now-icon">

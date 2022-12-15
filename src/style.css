@@ -88,9 +88,75 @@ h3 {
 }
 
 .title {
+  text-align: center;
+  position: relative;
+}
+
+.title img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.city-select {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #000;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.city-select h4 {
+  padding: 35px 10px 10px;
+  background: #fff;
+}
+
+#btn-close {
+  position: absolute;
+  right: 25px;
+  top: 35px;
+  background: none;
+  border: none;
+}
+
+#btn-close img {
+  width: 25px;
+}
+
+#city-list {
+  width: 100%;
+  border: none;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  text-align: center;
+}
+
+#city-list {
+  -ms-overflow-style: none;
+}
+#city-list::-webkit-scrollbar {
+  display: none;
+}
+
+.city-select #city-list option {
+  padding: 10px;
+  border-bottom: 0.1px solid #ccc;
+}
+
+/* .city-select 전환 */
+.city-select {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.city-select.show {
+  height: 667px;
+  overflow: visible;
+  opacity: 1;
 }
 
 .now {

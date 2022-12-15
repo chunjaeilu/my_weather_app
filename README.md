@@ -8,7 +8,7 @@ URL : https://chunjaeilu.github.io/my_weather_app/
 
 #### 과제 내용
 - 날씨 API 활용하여 날씨앱 만들기 (Open Weather Map)
-- 제출일정 : 1주일
+- 제출기한 : 1주일
 
 #### Time Table
 

@@ -58,23 +58,23 @@ function showWeatherData(data) {
 
   /* 날씨정보 재가공 */
   let iconurl = `./src/images/weather-icons/${icon}.svg`;
-  let wDrectionTxt = "서풍";
+  let wDrectionTxt = "북풍";
   if (windDirection >= 23 && windDirection < 68) {
-    wDrectionTxt = "남서풍";
+    wDrectionTxt = "북동풍";
   } else if (windDirection >= 68 && windDirection < 113) {
-    wDrectionTxt = "남풍";
+    wDrectionTxt = "동풍";
   } else if (windDirection >= 113 && windDirection < 158) {
     wDrectionTxt = "남동풍";
   } else if (windDirection >= 158 && windDirection < 203) {
-    wDrectionTxt = "동풍";
+    wDrectionTxt = "남풍";
   } else if (windDirection >= 203 && windDirection < 248) {
-    wDrectionTxt = "북동풍";
+    wDrectionTxt = "남서풍";
   } else if (windDirection >= 248 && windDirection < 293) {
-    wDrectionTxt = "북풍";
+    wDrectionTxt = "서풍";
   } else if (windDirection >= 293 && windDirection < 338) {
     wDrectionTxt = "북서풍";
   } else {
-    wDrectionTxt = "서풍";
+    wDrectionTxt = "북풍";
   }
 
   /* DOM El */
@@ -405,7 +405,6 @@ function showPosition(position) {
   };
   lat = pos.lat;
   lon = pos.lon;
-
   getWeatherData(lat, lon);
 }
 

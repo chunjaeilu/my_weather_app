@@ -47,3 +47,4 @@ URL : https://chunjaeilu.github.io/my_weather_app/
 #### 향후 업데이트 방향
 - 시간별예보 및 주간예보 슬라이드 기능 추가
 - JavaScript 코드 최적화 (반복문 활용)
+- 모바일환경 CSS 변경 (웹-모바일 가변형)

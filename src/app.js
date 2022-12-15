@@ -1,17 +1,15 @@
 /* app.js */
 
 const API_KEY = "2e7bdc741e08b8849666468a83a0040c";
-let city_name = "seoul";
 let lat = 37.5683;
 let lon = 126.9778;
-let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`;
-let API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${API_KEY}`;
+let API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+let API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 let API_URL3 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
-function getWeatherData(cityName = "seoul") {
-  city_name = cityName;
-  API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`;
-  API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${API_KEY}`;
+function getWeatherData(lat = "37.5683", lon = "126.9778") {
+  API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+  API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
   API_URL3 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
   fetch(API_URL)
@@ -19,7 +17,7 @@ function getWeatherData(cityName = "seoul") {
       return res.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       showWeatherData(data); // data 외부로 분리
     });
 
@@ -28,7 +26,7 @@ function getWeatherData(cityName = "seoul") {
       return res2.json();
     })
     .then(function (data2) {
-      console.log(data2);
+      // console.log(data2);
       showWeatherData2(data2);
     });
 
@@ -37,7 +35,7 @@ function getWeatherData(cityName = "seoul") {
       return res3.json();
     })
     .then(function (data3) {
-      console.log(data3);
+      // console.log(data3);
       showAirpollution(data3);
     });
 }
@@ -379,8 +377,8 @@ select.addEventListener("change", function (e) {
     lat = 35.8;
     lon = 128.55;
   } else if (citySelect == "gwangju") {
-    lat = 37.5683;
-    lon = 126.9778;
+    lat = 35.155;
+    lon = 126.916;
   } else if (citySelect == "daejeon") {
     lat = 36.3333;
     lon = 127.41678;
@@ -388,7 +386,7 @@ select.addEventListener("change", function (e) {
     lat = 33.5097;
     lon = 126.5219;
   }
-  getWeatherData(citySelect);
+  getWeatherData(lat, lon);
 });
 
 // 현재위치
@@ -405,39 +403,10 @@ function showPosition(position) {
     lat: position.coords.latitude,
     lon: position.coords.longitude,
   };
+  lat = pos.lat;
+  lon = pos.lon;
 
-  getCurrentWeatherData(pos.lat, pos.lon);
+  getWeatherData(lat, lon);
 }
-
-function getCurrentWeatherData(lat, lon) {
-  // 도시명 업데이트
-  API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-  API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-  API_URL3 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-  fetch(API_URL)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      // console.log(data);
-      showWeatherData(data);
-    });
-  fetch(API_URL2)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data2) {
-      // console.log(data2);
-      showWeatherData2(data2);
-    });
-  fetch(API_URL3)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data3) {
-      // console.log(data3);
-      showAirpollution(data3);
-    });
-} // getCurrentWeatherData
 
 getLocation();

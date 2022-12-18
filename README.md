@@ -1,6 +1,6 @@
 # my_weather_app
 
-22.12.12(월) ~
+22.12.12(월) ~ 12.16(금)
 
 URL : https://chunjaeilu.github.io/my_weather_app/
 
@@ -24,6 +24,9 @@ URL : https://chunjaeilu.github.io/my_weather_app/
 
 - 22.12.15(목)
   - 1차 제출
+
+- 22.12.16(금)
+  - 발표 및 피드백
   
 ---
 #### 기획 및 디자인 컨셉

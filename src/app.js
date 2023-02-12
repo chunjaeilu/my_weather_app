@@ -26,7 +26,7 @@ function getWeatherData(lat = "37.5683", lon = "126.9778") {
       return res2.json();
     })
     .then(function (data2) {
-      // console.log(data2);
+      console.log(data2);
       showWeatherData2(data2);
     });
 
